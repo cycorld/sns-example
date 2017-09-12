@@ -27,5 +27,14 @@
         <%= link_to "수정", edit_post_path(post)%>
       <% end %>
     </div>
+    </br>
+    <%= form_tag post_comments_path(post) do %>
+      <div class="input-field">
+        <%= text_area_tag :content, nil, class: "container-fluid", placeholder: "댓글을 작성해주세요.", required: true %>
+      </div>
+      <div class="input-field text-right">
+        <%= button_tag "댓글 쓰기", class: "btn btn-light btn-sm align-right" %>
+      </div>
+    <% end %>
   </div>
 </div>
