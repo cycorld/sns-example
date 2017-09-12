@@ -1,0 +1,31 @@
+<div class="card" >
+  <div class="card-body">
+    <h4 class="card-title ">
+      <%= post.user.name %>
+      <small class="text-muted"><%= post.created_at %></small>
+      <div class="text-right">
+        <% if user_signed_in? && current_user != post.user %>
+          <% if current_user.followings.include?(post.user) %>
+            <%= form_tag follow_path(post.user.id), method: :delete do %>
+              <button class="btn btn-light btn-sm">팔로우 취소</button>
+            <% end %>
+          <% else %>
+            <%= form_tag follows_path, class: "right" do %>
+              <input type="hidden" name="followed_id" value="<%= post.user.id %>" />
+              <button class="btn btn-light btn-sm ">팔로우</button>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </h4>
+    <p class="card-text pre-line">
+    <%= post.content %>
+    </p>
+    <div class="text-right">
+      <% if current_user.id == post.user.id %>
+        <%= link_to "삭제", post_path(post), method: "delete" %>
+        <%= link_to "수정", edit_post_path(post)%>
+      <% end %>
+    </div>
+  </div>
+</div>
