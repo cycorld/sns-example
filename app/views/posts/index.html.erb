@@ -1,0 +1,27 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card" >
+        <img class="card-img-top" src="https://file2.instiz.net/data/file2/2016/05/08/4/c/c/4cc247c04275016e95d9d5dd82af34bd.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h4 class="card-title"><%= current_user.name %></h4>
+          <p class="card-text">이메일 : <%= current_user.email %></p>
+          <p class="card-text">올린 글 개수 : <%= @posts_count %></p>
+          <div class="text-center">
+            <%= link_to new_post_path do %>
+              <button class="btn btn-light">글쓰기</button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <% @posts.each do |post| %>
+        <div class="mb-3">
+          <%= render partial: "post", object: post %>
+        </div>
+      <%end%>
+    </div>
+  </div>
+</div>
+
