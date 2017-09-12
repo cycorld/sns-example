@@ -36,5 +36,21 @@
         <%= button_tag "댓글 쓰기", class: "btn btn-light btn-sm align-right" %>
       </div>
     <% end %>
+    </br>
+    <% if post.comments.present? %>
+      <ul class="list-group">
+        <% post.comments.each do |comment| %>
+          <li class="list-group-item">
+            <h6 class="title"><%= comment.user.name %>
+            <small class="text-muted"><%= comment.created_at %></small>
+            <% if comment.user.id == current_user.id %>
+              <span><%= link_to "삭제", post_comment_path(post, comment), method: "delete" %></span>
+            <% end %>
+            </h6>
+            <p><%= comment.content %></p>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
   </div>
 </div>
