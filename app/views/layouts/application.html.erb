@@ -20,10 +20,10 @@
             <a class="nav-link" href="/posts">Posts</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<%=new_user_session_path%>">Sign in</a>
+            <%= link_to 'Sign in', new_user_session_path, class: 'nav-link'%>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<%=new_user_registration_path%>">Sign up</a>
+            <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link'%>
           </li>
         </ul>
       </div>
