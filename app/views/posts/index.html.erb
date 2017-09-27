@@ -7,6 +7,8 @@
           <h4 class="card-title"><%= current_user.name %></h4>
           <p class="card-text">이메일 : <%= current_user.email %></p>
           <p class="card-text">올린 글 개수 : <%= @posts_count %></p>
+          <p>팔로워 : <%= current_user.followers.length %></p>
+          <p>팔로잉 : <%= current_user.followings.length %></p>
           <div class="text-center">
             <%= link_to new_post_path do %>
               <button class="btn btn-light">글쓰기</button>
