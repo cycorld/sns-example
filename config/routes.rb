@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :posts, except: [:show] do
     resources :comments, only: [:create, :destroy]
   end
+  resources :follows, only: [:create, :destroy]
 end
